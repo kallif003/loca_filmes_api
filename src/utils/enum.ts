@@ -61,4 +61,11 @@ export enum Routes {
   GET_ALL_NAMES = "/api/get_all_names",
   GET_ALL_DOCNUMBERS = "/api/get_all_docNumbers",
   GET_USER_BY_NAME_OR_DOCNUM = "/api/get_user_by_name_or_docNum",
+  SAVE_CUSTOMER = "/api/customer/save",
+  GET_ALL_CUSTOMER = "/api/getAllCustomer",
+  UPDATE_CUSTOMER = "/api/customer/update/:id",
+  DELETE_CUSTOMER = "/api/customer/:id",
+  GET_ALL_CUSTOMER_NAMES = "/api/get_all_customer_names",
+  GET_ALL_CUSTOMER_DOCNUMBERS = "/api/get_all_customer_docNumbers",
+  GET_CUSTOMER_BY_NAME_OR_DOCNUM_OR_STATUS = "/api/get_customer_by_name_or_docNum_or_status",
 }

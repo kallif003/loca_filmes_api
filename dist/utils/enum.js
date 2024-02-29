@@ -52,5 +52,12 @@ var Routes;
     Routes["GET_ALL_NAMES"] = "/api/get_all_names";
     Routes["GET_ALL_DOCNUMBERS"] = "/api/get_all_docNumbers";
     Routes["GET_USER_BY_NAME_OR_DOCNUM"] = "/api/get_user_by_name_or_docNum";
+    Routes["SAVE_CUSTOMER"] = "/api/customer/save";
+    Routes["GET_ALL_CUSTOMER"] = "/api/getAllCustomer";
+    Routes["UPDATE_CUSTOMER"] = "/api/customer/update/:id";
+    Routes["DELETE_CUSTOMER"] = "/api/customer/:id";
+    Routes["GET_ALL_CUSTOMER_NAMES"] = "/api/get_all_customer_names";
+    Routes["GET_ALL_CUSTOMER_DOCNUMBERS"] = "/api/get_all_customer_docNumbers";
+    Routes["GET_CUSTOMER_BY_NAME_OR_DOCNUM_OR_STATUS"] = "/api/get_customer_by_name_or_docNum_or_status";
 })(Routes = exports.Routes || (exports.Routes = {}));
 //# sourceMappingURL=enum.js.map

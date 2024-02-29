@@ -1,15 +1,15 @@
 import { Request, Response } from "express";
 import { Messages } from "../utils/enum";
-import { IUser } from "../utils/interface";
-import UserService from "../services/user_service";
+import { CustomerForm, IUser } from "../utils/interface";
+import CustomerService from "../services/customer_service";
 import HandleError from "../utils/errors/handleError";
 
-class UserController {
-  async createUser(req: Request, res: Response) {
+class CustomerController {
+  async createCustomer(req: Request, res: Response) {
     try {
-      const { userForm, permissions } = req.body;
+      const { clientForm } = req.body;
 
-      const user = await UserService.createUserService(userForm, permissions);
+      const user = await CustomerService.createCustomerService(clientForm);
 
       const message = {
         title: Messages.TITLE_REGISTER,
@@ -32,19 +32,18 @@ class UserController {
     }
   }
 
-  async getAllUsers(req: Request, res: Response) {
+  async getAllCustomer(req: Request, res: Response) {
     try {
-      const { itemsPerPage, page, permissions } = req.body;
+      const { itemsPerPage, page } = req.body;
 
       const skip = (parseInt(page) - 1) * parseInt(itemsPerPage);
 
-      const users = await UserService.getAllUsersService(
+      const customer = await CustomerService.getAllCustomerService(
         itemsPerPage,
-        skip,
-        permissions
+        skip
       );
 
-      return res.status(200).json(users);
+      return res.status(200).json(customer);
     } catch (error) {
       if (error instanceof HandleError) {
         return res.status(error.statusCode).json({
@@ -64,11 +63,9 @@ class UserController {
     }
   }
 
-  async getAllUserNames(req: Request, res: Response) {
+  async getAllCustomerNames(req: Request, res: Response) {
     try {
-      const { permissions } = req.body;
-
-      const names = await UserService.getAllUserNamesService(permissions);
+      const names = await CustomerService.getAllCustomerNamesService();
 
       return res.status(200).json(names);
     } catch (error) {
@@ -92,9 +89,7 @@ class UserController {
 
   async getAllDocNum(req: Request, res: Response) {
     try {
-      const { permissions } = req.body;
-
-      const docNumbers = await UserService.getAllDocNumService(permissions);
+      const docNumbers = await CustomerService.getAllDocNumService();
 
       return res.status(200).json(docNumbers);
     } catch (error) {
@@ -116,14 +111,16 @@ class UserController {
     }
   }
 
-  async getUsersByNameOrDocNum(req: Request, res: Response) {
+  async getCustomerByNameOrDocNumOrStatus(req: Request, res: Response) {
     try {
-      const { name, docNum } = req.body;
+      const { name, docNum, status } = req.body;
 
-      const user = await UserService.getUsersByNameOrDocNumService(
-        name,
-        docNum
-      );
+      const user =
+        await CustomerService.getCustomerByNameOrDocNumOrStatusService(
+          name,
+          docNum,
+          status
+        );
 
       return res.status(200).json(user);
     } catch (error) {
@@ -145,19 +142,34 @@ class UserController {
     }
   }
 
-  async updateUsers(req: Request, res: Response) {
+  async updateCustomer(req: Request, res: Response) {
     try {
-      const { name, password, email, docNum }: IUser = req.body;
+      const {
+        name,
+        email,
+        docNum,
+        phone,
+        cep,
+        city,
+        district,
+        state,
+        street,
+      }: CustomerForm = req.body;
 
       const { id } = req.params;
 
-      const user = await UserService.updateUserService(
+      const user = await CustomerService.updateCustomerService(
         [
           {
             name,
-            password,
             email,
             docNum,
+            phone,
+            cep,
+            city,
+            district,
+            state,
+            street,
           },
         ],
         id
@@ -197,7 +209,7 @@ class UserController {
     try {
       const { id } = req.params;
 
-      await UserService.deleteUserService(id);
+      await CustomerService.deleteCustomerService(id);
 
       const message = {
         title: Messages.TITLE_DELETE_REGISTER,
@@ -220,4 +232,4 @@ class UserController {
   }
 }
 
-export default UserController;
+export default CustomerController;
