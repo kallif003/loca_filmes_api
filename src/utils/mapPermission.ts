@@ -2,9 +2,9 @@ import { Permissions } from "./enum";
 
 class PermissionMapper {
   private static creatablePermissions: Record<Permissions, Permissions[]> = {
-    [Permissions.ADMIN]: [Permissions.USER_DEFAULT],
+    [Permissions.ADMIN]: [Permissions.COLLABORATOR],
     [Permissions.MASTER]: [Permissions.ADMIN],
-    [Permissions.USER_DEFAULT]: [Permissions.CLIENT],
+    [Permissions.COLLABORATOR]: [Permissions.CLIENT],
     [Permissions.CLIENT]: [Permissions.CLIENT],
   };
 

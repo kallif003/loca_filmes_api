@@ -7,11 +7,6 @@ const userSchema: Schema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  status: {
-    type: String,
-    required: true,
-    trim: true,
-  },
   role: [
     {
       type: String,
@@ -31,6 +26,11 @@ const userSchema: Schema = new mongoose.Schema({
     },
   },
   password: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  docNum: {
     type: String,
     required: true,
     trim: true,

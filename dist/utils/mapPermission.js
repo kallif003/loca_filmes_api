@@ -13,9 +13,9 @@ class PermissionMapper {
     }
 }
 PermissionMapper.creatablePermissions = {
-    [enum_1.Permissions.ADMIN]: [enum_1.Permissions.USER_DEFAULT],
+    [enum_1.Permissions.ADMIN]: [enum_1.Permissions.COLLABORATOR],
     [enum_1.Permissions.MASTER]: [enum_1.Permissions.ADMIN],
-    [enum_1.Permissions.USER_DEFAULT]: [enum_1.Permissions.CLIENT],
+    [enum_1.Permissions.COLLABORATOR]: [enum_1.Permissions.CLIENT],
     [enum_1.Permissions.CLIENT]: [enum_1.Permissions.CLIENT],
 };
 exports.default = PermissionMapper;

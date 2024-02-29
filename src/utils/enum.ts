@@ -47,11 +47,18 @@ export enum Messages {
 export enum Permissions {
   MASTER = "MASTER",
   ADMIN = "ADMIN",
-  USER_DEFAULT = "USER_DEFAULT",
+  COLLABORATOR = "COLLABORATOR",
   CLIENT = "CLIENT",
 }
 
 export enum Routes {
   LOGIN = "/api/login",
+  SAVE_ADMIN = "/api/save_admin",
   SAVE_USER = "/api/user/save",
+  GET_ALL_USERS = "/api/getAllUsers",
+  UPDATE_USER = "/api/user/update/:id",
+  DELETE_USER = "/api/user/:id",
+  GET_ALL_NAMES = "/api/get_all_names",
+  GET_ALL_DOCNUMBERS = "/api/get_all_docNumbers",
+  GET_USER_BY_NAME_OR_DOCNUM = "/api/get_user_by_name_or_docNum",
 }

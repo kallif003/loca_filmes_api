@@ -13,11 +13,14 @@ export interface IUserSchema extends Document {
   role: string[];
   password: string;
   email: string;
+  docNum: string;
   createdAt: Date;
   deletedAt?: Date;
   updatedAt?: Date;
   deleted: boolean;
 }
+
+export type IUser = Pick<IUserSchema, "name" | "password" | "email" | "docNum">;
 
 export interface ITokenResponse {
   token: string;

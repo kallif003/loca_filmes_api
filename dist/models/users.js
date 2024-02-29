@@ -10,11 +10,6 @@ const userSchema = new mongoose_1.default.Schema({
         required: true,
         trim: true,
     },
-    status: {
-        type: String,
-        required: true,
-        trim: true,
-    },
     role: [
         {
             type: String,
@@ -34,6 +29,11 @@ const userSchema = new mongoose_1.default.Schema({
         },
     },
     password: {
+        type: String,
+        required: true,
+        trim: true,
+    },
+    docNum: {
         type: String,
         required: true,
         trim: true,

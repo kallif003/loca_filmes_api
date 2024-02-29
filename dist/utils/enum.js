@@ -38,12 +38,19 @@ var Permissions;
 (function (Permissions) {
     Permissions["MASTER"] = "MASTER";
     Permissions["ADMIN"] = "ADMIN";
-    Permissions["USER_DEFAULT"] = "USER_DEFAULT";
+    Permissions["COLLABORATOR"] = "COLLABORATOR";
     Permissions["CLIENT"] = "CLIENT";
 })(Permissions = exports.Permissions || (exports.Permissions = {}));
 var Routes;
 (function (Routes) {
     Routes["LOGIN"] = "/api/login";
+    Routes["SAVE_ADMIN"] = "/api/save_admin";
     Routes["SAVE_USER"] = "/api/user/save";
+    Routes["GET_ALL_USERS"] = "/api/getAllUsers";
+    Routes["UPDATE_USER"] = "/api/user/update/:id";
+    Routes["DELETE_USER"] = "/api/user/:id";
+    Routes["GET_ALL_NAMES"] = "/api/get_all_names";
+    Routes["GET_ALL_DOCNUMBERS"] = "/api/get_all_docNumbers";
+    Routes["GET_USER_BY_NAME_OR_DOCNUM"] = "/api/get_user_by_name_or_docNum";
 })(Routes = exports.Routes || (exports.Routes = {}));
 //# sourceMappingURL=enum.js.map
