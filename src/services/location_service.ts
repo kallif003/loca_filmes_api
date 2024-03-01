@@ -132,7 +132,7 @@ class LocationService {
         .limit(itemsPerPage);
 
       if (locations.length == 0) {
-        throw new HandleError("Não há registros para essa busca", 404);
+        throw new HandleError("Não há registros para essa sua busca", 404);
       }
 
       let totalLocation = await Location.find(query).count();

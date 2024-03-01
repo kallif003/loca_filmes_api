@@ -120,7 +120,7 @@ class LocationService {
                     .skip(skip)
                     .limit(itemsPerPage);
                 if (locations.length == 0) {
-                    throw new handleError_1.default("Não há registros para essa busca", 404);
+                    throw new handleError_1.default("Não há registros para essa sua busca", 404);
                 }
                 let totalLocation = yield location_1.default.find(query).count();
                 const totalPages = Math.ceil(totalLocation / itemsPerPage);
