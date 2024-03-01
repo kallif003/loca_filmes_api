@@ -49,6 +49,12 @@ export interface ILocationSchema extends Document {
   deleted: boolean;
 }
 
+export interface ILocationFilter {
+  customer: string;
+  createdAt: any;
+  status: string;
+}
+
 export type CustomerForm = Pick<
   ICustomerSchema,
   | "name"

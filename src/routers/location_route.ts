@@ -8,6 +8,16 @@ const location_controller = new LocationController();
 
 location_route
   .post(
+    Routes.GET_ALL_LOCATION,
+    verifyPermission([Permissions.ADMIN, Permissions.COLLABORATOR]),
+    location_controller.getAllLocation
+  )
+  .post(
+    Routes.GET_LOCATION_BY_FILTER,
+    verifyPermission([Permissions.ADMIN, Permissions.COLLABORATOR]),
+    location_controller.getLocationByFilter
+  )
+  .post(
     Routes.VALIDATE_RENTAL_PERMISSION,
     verifyPermission([Permissions.ADMIN, Permissions.COLLABORATOR]),
     location_controller.validateRentalPermission
@@ -16,6 +26,11 @@ location_route
     Routes.SAVE_LOCATION,
     verifyPermission([Permissions.ADMIN, Permissions.COLLABORATOR]),
     location_controller.createLocation
+  )
+  .put(
+    Routes.RETURN_MOVIE,
+    verifyPermission([Permissions.ADMIN, Permissions.COLLABORATOR]),
+    location_controller.returnMovie
   );
 
 export default location_route;

@@ -10,7 +10,10 @@ const middleware_1 = require("../middleware");
 const location_route = express_1.default.Router();
 const location_controller = new location_controller_1.default();
 location_route
+    .post(enum_1.Routes.GET_ALL_LOCATION, (0, middleware_1.verifyPermission)([enum_1.Permissions.ADMIN, enum_1.Permissions.COLLABORATOR]), location_controller.getAllLocation)
+    .post(enum_1.Routes.GET_LOCATION_BY_FILTER, (0, middleware_1.verifyPermission)([enum_1.Permissions.ADMIN, enum_1.Permissions.COLLABORATOR]), location_controller.getLocationByFilter)
     .post(enum_1.Routes.VALIDATE_RENTAL_PERMISSION, (0, middleware_1.verifyPermission)([enum_1.Permissions.ADMIN, enum_1.Permissions.COLLABORATOR]), location_controller.validateRentalPermission)
-    .post(enum_1.Routes.SAVE_LOCATION, (0, middleware_1.verifyPermission)([enum_1.Permissions.ADMIN, enum_1.Permissions.COLLABORATOR]), location_controller.createLocation);
+    .post(enum_1.Routes.SAVE_LOCATION, (0, middleware_1.verifyPermission)([enum_1.Permissions.ADMIN, enum_1.Permissions.COLLABORATOR]), location_controller.createLocation)
+    .put(enum_1.Routes.RETURN_MOVIE, (0, middleware_1.verifyPermission)([enum_1.Permissions.ADMIN, enum_1.Permissions.COLLABORATOR]), location_controller.returnMovie);
 exports.default = location_route;
 //# sourceMappingURL=location_route.js.map
