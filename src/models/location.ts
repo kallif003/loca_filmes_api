@@ -17,10 +17,6 @@ const locationSchema: Schema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  date_devolution: {
-    type: Date,
-    default: Date.now,
-  },
   createdAt: {
     type: Date,
     default: Date.now,

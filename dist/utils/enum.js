@@ -63,5 +63,8 @@ var Routes;
     Routes["GET_CUSTOMER_BY_NAME_OR_DOCNUM_OR_STATUS"] = "/api/get_customer_by_name_or_docNum_or_status";
     Routes["VALIDATE_RENTAL_PERMISSION"] = "/api/validade_rental_permission";
     Routes["SAVE_LOCATION"] = "/api/location/save";
+    Routes["GET_ALL_LOCATION"] = "/api/get_all_location";
+    Routes["RETURN_MOVIE"] = "/api/return_movie/:id";
+    Routes["GET_LOCATION_BY_FILTER"] = "/api/location_by_filter";
 })(Routes = exports.Routes || (exports.Routes = {}));
 //# sourceMappingURL=enum.js.map

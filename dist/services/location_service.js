@@ -60,6 +60,80 @@ class LocationService {
             }
         });
     }
+    static getAllLocationService(itemsPerPage, skip) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const locations = yield location_1.default.find().skip(skip).limit(itemsPerPage);
+                if (locations.length == 0) {
+                    throw new handleError_1.default("Não há registros para essa busca", 404);
+                }
+                const totalLocations = yield location_1.default.find().count();
+                const totalPages = Math.ceil(totalLocations / itemsPerPage);
+                return { locations, totalPages };
+            }
+            catch (error) {
+                if (error instanceof handleError_1.default) {
+                    throw error;
+                }
+                throw new Error(error.message);
+            }
+        });
+    }
+    static returnMovieService(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const currentDate = new Date();
+                const user = yield location_1.default.findByIdAndUpdate(id, {
+                    deleted: true,
+                    deletedAt: currentDate,
+                }, { new: true });
+                return user;
+            }
+            catch (error) {
+                throw new Error(error.message);
+            }
+        });
+    }
+    static getLocationByFilterService(locationFilter, itemsPerPage, skip) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let query = {};
+                const { createdAt, customer, status } = locationFilter;
+                if (createdAt) {
+                    const startDate = new Date(createdAt);
+                    const endDate = new Date(new Date(createdAt).setDate(startDate.getDate() + 1));
+                    query["createdAt"] = {
+                        $gte: startDate,
+                        $lt: endDate,
+                    };
+                }
+                if (customer) {
+                    query["customer"] = customer;
+                }
+                if (status == "Entregue") {
+                    query["deleted"] = true;
+                }
+                else if (status == "Alugado") {
+                    query["deleted"] = false;
+                }
+                const locations = yield location_1.default.find(Object.assign({}, query))
+                    .skip(skip)
+                    .limit(itemsPerPage);
+                if (locations.length == 0) {
+                    throw new handleError_1.default("Não há registros para essa sua busca", 404);
+                }
+                let totalLocation = yield location_1.default.find(query).count();
+                const totalPages = Math.ceil(totalLocation / itemsPerPage);
+                return { locations, totalPages };
+            }
+            catch (error) {
+                if (error instanceof handleError_1.default) {
+                    throw error;
+                }
+                throw new Error(error.message);
+            }
+        });
+    }
 }
 exports.default = LocationService;
 //# sourceMappingURL=location_service.js.map

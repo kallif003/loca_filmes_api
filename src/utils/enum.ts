@@ -73,4 +73,7 @@ export enum Routes {
   GET_CUSTOMER_BY_NAME_OR_DOCNUM_OR_STATUS = "/api/get_customer_by_name_or_docNum_or_status",
   VALIDATE_RENTAL_PERMISSION = "/api/validade_rental_permission",
   SAVE_LOCATION = "/api/location/save",
+  GET_ALL_LOCATION = "/api/get_all_location",
+  RETURN_MOVIE = "/api/return_movie/:id",
+  GET_LOCATION_BY_FILTER = "/api/location_by_filter",
 }
