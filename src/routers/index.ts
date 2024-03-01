@@ -8,6 +8,7 @@ import cors from "cors";
 import user_route from "./user_route";
 import login_route from "./login_route";
 import customer_route from "./customer_route";
+import location_route from "./location_route";
 
 const router = (app: Express) => {
   app.route("/").get((req: Request, res: Response) => {
@@ -20,7 +21,8 @@ const router = (app: Express) => {
     user_route,
     login_route,
     verifyToken,
-    customer_route
+    customer_route,
+    location_route
   );
 };
 

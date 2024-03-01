@@ -27,6 +27,8 @@ var Messages;
     Messages["SUBTITLE_THERE_ARE_NO_RECORDS"] = "N\u00E3o foram encontrados registros para essa busca";
     Messages["TITLE_EXISTING_USER"] = "Username inv\u00E1lido";
     Messages["SUBTITLE_EXISTING_USER"] = "O nome de usu\u00E1rio fornecido j\u00E1 existe em nosso banco";
+    Messages["TITLE_EXISTING_LOCATION"] = "Filmes alugados";
+    Messages["SUBTITLE_EXISTING_LOCATION"] = "Esse cliente possui filmes alugados";
     Messages["TITLE_COLLECTION_CREATED"] = "Sucesso";
     Messages["SUBTITLE_COLLECTION_CREATED"] = "Pedido de coleta realizado";
     Messages["TITLE_UPDATE_COLLECTION"] = "Atualizado";
@@ -59,5 +61,7 @@ var Routes;
     Routes["GET_ALL_CUSTOMER_NAMES"] = "/api/get_all_customer_names";
     Routes["GET_ALL_CUSTOMER_DOCNUMBERS"] = "/api/get_all_customer_docNumbers";
     Routes["GET_CUSTOMER_BY_NAME_OR_DOCNUM_OR_STATUS"] = "/api/get_customer_by_name_or_docNum_or_status";
+    Routes["VALIDATE_RENTAL_PERMISSION"] = "/api/validade_rental_permission";
+    Routes["SAVE_LOCATION"] = "/api/location/save";
 })(Routes = exports.Routes || (exports.Routes = {}));
 //# sourceMappingURL=enum.js.map

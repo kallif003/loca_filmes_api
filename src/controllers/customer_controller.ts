@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { Messages } from "../utils/enum";
-import { CustomerForm, IUser } from "../utils/interface";
+import { CustomerForm } from "../utils/interface";
 import CustomerService from "../services/customer_service";
 import HandleError from "../utils/errors/handleError";
 

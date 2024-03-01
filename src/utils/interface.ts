@@ -37,6 +37,18 @@ export interface ICustomerSchema extends Document {
   deleted: boolean;
 }
 
+export interface ILocationSchema extends Document {
+  movie: string;
+  customer: string;
+  docNum: string;
+  status: string;
+  date_devolution: Date;
+  createdAt: Date;
+  deletedAt?: Date;
+  updatedAt?: Date;
+  deleted: boolean;
+}
+
 export type CustomerForm = Pick<
   ICustomerSchema,
   | "name"
