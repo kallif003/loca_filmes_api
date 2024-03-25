@@ -8,6 +8,7 @@ class CustomerController {
   async createCustomer(req: Request, res: Response) {
     try {
       const { clientForm } = req.body;
+      console.log("c");
 
       const user = await CustomerService.createCustomerService(clientForm);
 
